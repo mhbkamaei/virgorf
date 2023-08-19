@@ -18,8 +18,9 @@
 #define VIAL_TAP_DANCE_ENTRIES 8
 #define DYNAMIC_KEYMAP_MACRO_COUNT 8
 
-#define VIAL_UNLOCK_COMBO_ROWS { 2, 2 }
-#define VIAL_UNLOCK_COMBO_COLS { 0, 9 }
+//#define VIAL_UNLOCK_COMBO_ROWS { 2, 2 }
+//#define VIAL_UNLOCK_COMBO_COLS { 0, 9 }
+
 
 // #define IGNORE_MOD_TAP_INTERRUPT   it is now the default behavior
 #define TAPPING_TERM 222
