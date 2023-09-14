@@ -3,12 +3,17 @@ VIAL_ENABLE =			yes
 
 SERIAL_DRIVER =			usart
 
+NKRO_ENABLE =			yes
+LEADER_ENABLE =			yes
+DEFERRED_EXEC_ENABLE =	yes
 QMK_SETTINGS =			yes
 UNICODE_ENABLE =		yes
 MOUSEKEY_ENABLE =		yes
 EXTRAKEY_ENABLE =		yes
 NKRO_ENABLE =			yes
 KEYBOARD_SHARED_EP =	yes
+SEND_STRING_ENABLE =	yes
+CAPS_WORD_ENABLE =		yes
 
 VIAL_INSECURE =			yes
 CONSOLE_ENABLE =		yes
@@ -18,7 +23,8 @@ COMMAND_ENABLE =		no
 SPLIT_KEYBOARD =		no
 BACKLIGHT_ENABLE =		no
 RGBLIGHT_ENABLE =		no
-AUDIO_ENABLE =			no    
+AUDIO_DRIVER =			pwm_hardware
+AUDIO_ENABLE =			yes    
 BOOTMAGIC_ENABLE =		no
 
 # project specific files

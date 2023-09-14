@@ -1,25 +1,26 @@
 #include QMK_KEYBOARD_H
 
-#define KC__ KC_TRNS
-
+#define KC__	KC_TRNS
+#define QK_LD	QK_LEAD
+#define PAD		TG(NUM)
 // Left-hand home row mods
-#define HM_A LGUI_T(KC_A)
-#define HM_S LALT_T(KC_S)
-#define HM_D LCTL_T(KC_D)
-#define HM_F LSFT_T(KC_F)
+#define HM_A	LGUI_T(KC_A)
+#define HM_S	LALT_T(KC_S)
+#define HM_D	LCTL_T(KC_D)
+#define HM_F	LSFT_T(KC_F)
 
-#define OO_SPC LT(NAV, KC_SPC)
-#define OO_BSPC LT(FUN, KC_BSPC)
-#define OO_TAB LT(NUM, KC_TAB)
+#define OO_SPC	LT(NAV, KC_SPC)
+#define OO_BSPC	LT(FUN, KC_BSPC)
+#define OO_TAB	LT(NUM, KC_TAB)
 
-#define OO_ENT LT(SYM, KC_ENT)
-#define OO_ESC LT(MEDIA, KC_ESC)
-#define OO_DEL LT(MOUSE, KC_DEL)
+#define OO_ENT	LT(SYM, KC_ENT)
+#define OO_ESC	LT(MEDIA, KC_ESC)
+#define OO_DEL	LT(MOUSE, KC_DEL)
 // Right-hand home row mods
-#define HM_J RSFT_T(KC_J)
-#define HM_K RCTL_T(KC_K)
-#define HM_L RALT_T(KC_L)
-#define HM_O RGUI_T(KC_SCLN)
+#define HM_J	RSFT_T(KC_J)
+#define HM_K	RCTL_T(KC_K)
+#define HM_L	RALT_T(KC_L)
+#define HM_O	RGUI_T(KC_SCLN)
 
 enum layers { BASE, NAV, FUN, NUM, SYM, MOUSE, MEDIA};
 
@@ -34,7 +35,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[NAV] = LAYOUT(
 		KC_CAPS, KC_NO,   KC_NO,    KC_NO,    KC_NO,       KC_INS,  KC_HOME,   KC_PGUP,  KC_NO,    KC_NO,
 		KC_LGUI, KC_LALT, KC_LCTL,  KC_LSFT,  KC_NO,       KC_LEFT, KC_DOWN,   KC_UP,    KC_RGHT, KC_NO,
-		KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,       KC_DEL,  KC_END,    KC_PGDN,  KC_NO,    KC_NO,
+		CW_TOGG,   QK_LD,   KC_NO,    KC_NO,    KC_NO,       KC_DEL,  KC_END,    KC_PGDN,  KC_NO,    KC_NO,
 							KC__,     KC__,     KC__,        KC__,    KC__,      KC__),
 
 	[FUN] = LAYOUT(
@@ -44,9 +45,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                         	KC__,     KC__,     KC__,        KC__,    KC__,      KC__),
 
     [NUM] = LAYOUT(
-		KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,       KC_ASTR,  KC_7, KC_8, KC_9, KC_MINS,
+		KC_NO,    KC_NO,    KC_E,	  KC_R,     KC_NO,       KC_ASTR,  KC_7, KC_8, KC_9, KC_MINS,
 		KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  KC_NO,       KC_SLSH,  KC_4, KC_5, KC_6, KC_PLUS,
-		KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,       KC_DOT,   KC_1, KC_2, KC_3, KC_EQL,
+		KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_B,        KC_DOT,   KC_1, KC_2, KC_3, KC_EQL,
                         	KC__,     KC__,     KC__,        KC__,     KC__, KC_0),
 
     [SYM] = LAYOUT(
@@ -62,12 +63,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 		KC__,  KC__,  KC__,     KC__,  KC__,    KC__),
 
     [MEDIA] = LAYOUT(
-		KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,    KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,
-		KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,    KC_NO, KC_RSFT, KC_RCTL, KC_RALT, KC_RGUI,
+		QK_LD, KC_NO, KC_NO, KC_NO, KC_NO,    KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,
+		CW_TOGG, KC_NO, KC_NO, KC_NO, KC_NO,    KC_NO, KC_RSFT, KC_RCTL, KC_RALT, KC_RGUI,
 		KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,    KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,
             			KC__,  KC__,  KC__,     KC__,  KC__,    KC__),
 
 };
+
 void keyboard_post_init_user(void) {
   // Customise these values to desired behaviour
   debug_enable=true;
